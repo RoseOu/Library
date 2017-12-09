@@ -43,7 +43,6 @@ def edit_book(id):
     book.author_introduction = request.get_json().get("author_introduction") if request.get_json().get("author_introduction") else ""
     book.filed = request.get_json().get("filed") if request.get_json().get("filed") else ""
     book.image = request.get_json().get("image") if request.get_json().get("image") else ""
-    book.purchase_date = datetime.utcnow()+timedelta(hours=8)
     db.session.add(book)
     db.session.commit()
     return jsonify({
