@@ -72,6 +72,11 @@ def list_book():
         "name":b.name,
         "author":b.author,
         "book_introduction":b.book_introduction,
+        "isbn":b.isbn,
+        "author_introduction":b.author_introduction,
+        "filed":b.filed,
+        "press":b.press,
+        "publication_time":b.publication_time,
         "image":b.image
        } for b in book]
     return jsonify({

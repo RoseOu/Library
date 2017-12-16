@@ -39,9 +39,11 @@ def get_book(id):
         "name":book.name,
         "author":book.author,
         "book_introduction":book.book_introduction,
+        "isbn":book.isbn,
+        "author_introduction":book.author_introduction,
+        "filed":book.filed,
         "press":book.press,
         "publication_time":book.publication_time,
-        "book_introduction":book.book_introduction,
         "image":book.image
         })
 
