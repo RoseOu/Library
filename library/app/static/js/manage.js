@@ -226,5 +226,5 @@ side2.addEventListener('click', function() {
     main2.style.display = "inline-block";
 })
 logout.addEventListener('click', function() {
-    window.location = "login_a.html"
+    window.location = "/management/login/"
 })
