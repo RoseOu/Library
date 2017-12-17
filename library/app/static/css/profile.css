@@ -1,0 +1,139 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+body {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #313131;
+    background: white;
+    font-size: 15px;
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 1280px;
+    min-width: 1024px;
+    width: 100%;
+    height: 100%;
+}
+
+.catogery {
+    margin-left: 14%;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.catogery ul {
+    list-style: none;
+}
+
+.catogery li {
+    float: left;
+    width: 100px;
+    background: #CCC;
+    margin-left: 8px;
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.catogery a {
+    display: block;
+    text-align: center;
+    height: 40px;
+}
+
+.catogery a:link {
+    color: #666;
+    text-decoration: none;
+}
+
+.category a:visited {
+    color: #666;
+    text-decoration: underline;
+}
+
+.category a:hover {
+    color: #FFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.row {
+    margin: 20px auto;
+    max-width: 1280px;
+    min-width: 1024px;
+    list-style-type: none;
+    height: 400px;
+    display: flex;
+}
+
+.col1,
+.col4 {
+    float: left;
+    margin-left: 18%;
+    margin-right: 50px;
+}
+
+.col2,
+.col5 {
+    margin-right: 50px;
+    float: left;
+}
+
+.col3,
+.col6 {
+    margin-right: 5px;
+    float: left;
+}
+
+.thumbnail {
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.caption {
+    padding: 9px 9px 0px 9px;
+}
+
+h4 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #313131;
+}
+
+input {
+    display: block;
+    width: 110px;
+    height: 40px;
+    padding: 0;
+    margin: 10px 20px 10px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #22c08a;
+    border: none;
+    border-radius: 20px;
+    transition: background-color .10s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input:hover {
+    background-color: #26d69a;
+}
+
+input:active {
+    background-color: #1eaa7a;
+}

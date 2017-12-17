@@ -8,3 +8,18 @@ from flask import render_template
 def test():
     return "<h1>just tell you everything is ok!</h1>"
 
+@main.route('/')
+def index():
+    return render_template("main/index.html")
+
+@main.route('/login/')
+def login():
+    return render_template("main/login.html")
+
+@main.route('/profile/<int:id>/')
+def profile():
+    return render_template("main/profile.html")
+
+@main.route('/second/')
+def second(id):
+    return render_template("main/second.html")

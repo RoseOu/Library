@@ -40,3 +40,6 @@ app.register_blueprint(main, url_prefix='/main')
 from api import api
 app.register_blueprint(api, url_prefix="/api")
 
+from management import management
+app.register_blueprint(management, url_prefix='/management')
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Management</title>
+    <link rel="stylesheet" href="../../static/css/manage.css">
+</head>
+
+<body>
+    <div class="header centerBox">
+        <div class="icon center">
+            <img src="../../static/img/logo.png" alt="logo" class="logo">
+        </div>
+        <div class="name center">你好，管理员</div>
+        <div class="logout center" id="logout">退出登录</div>
+    </div>
+    <div class="side center">
+        <div class="title" id="manageBook">
+            <div class="icon_t center"><img src="../../static/img/manage.png" alt="管理"></div>
+            <div class="center">图书管理</div>
+        </div>
+        <div class="title" id="checkBook">
+            <div class="icon_t center"><img src="../../static/img/promise.png" alt=""></div>
+            <div class="center">还书审批</div>
+        </div>
+    </div>
+    <div class="main1 center" id="main1">
+        <div class="table">
+            <table id="table"></table>
+        </div>
+        <div class="sorter" id="sorter">
+
+        </div>
+        <div class="inputBox">
+            <div class="center input1">
+                <input type="text" placeholder="书名" class="input">
+                <input type="text" placeholder="出版时间" class="input">
+                <input type="text" placeholder="作者" class="input">
+                <input type="text" placeholder="涉及领域" class="input">
+                <input type="text" placeholder="ISBN" class="input">
+                <input type="text" placeholder="出版社" class="input">
+                <input type="text" placeholder="书封皮图片链接" class="input input_long">
+            </div>
+            <div class="center input2">
+                <textarea placeholder="作者简介" id="" cols="20" rows="8" class="input"></textarea>
+                <textarea placeholder="书的简介" id="" cols="20" rows="8" class="input"></textarea>
+            </div>
+        </div>
+        <div class="submit" id="submit">提交</div>
+    </div>
+    <div class="main2 center" id="main2">
+        <div class="table">
+            <table id="table2"></table>
+        </div>
+        <div class="sorter2" id="sorter2">
+
+        </div>
+    </div>
+</body>
+<script src="../../static/js/manage.js"></script>
+
+</html>
