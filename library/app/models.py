@@ -126,7 +126,7 @@ login_manager.anonymous_user = AnonymousUser
 class Book(db.Model):
     __tablename__ = 'books'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), default="", unique=True)
+    name = db.Column(db.String(64), default="")
     author = db.Column(db.String(64), default="")
     isbn = db.Column(db.String(128), default="")
     press = db.Column(db.String(128), default="")

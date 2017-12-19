@@ -17,9 +17,9 @@ def login():
     return render_template("main/login.html")
 
 @main.route('/profile/<int:id>/')
-def profile():
+def profile(id):
     return render_template("main/profile.html")
 
 @main.route('/second/')
-def second(id):
+def second():
     return render_template("main/second.html")
