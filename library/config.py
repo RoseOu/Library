@@ -19,7 +19,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     """development configuration"""
-    DEBUG = True
+    DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.environ.get('LIBRARY_MYSQL_URI')
     #SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join(basedir, "data-dev.sqlite")
 
