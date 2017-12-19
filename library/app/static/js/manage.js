@@ -232,5 +232,5 @@ side2.addEventListener('click', function() {
     returnB = 1;
 })
 logout.addEventListener('click', function() {
-    window.location = "management/login/"
+    window.location = "/management/login/"
 })
