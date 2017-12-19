@@ -10,182 +10,49 @@
 
 <body>
     <div class="container">
-        <div class="header">
+        <div class="header centerBox">
+            <div class="icon center">
+                <a href="/">
+                    <img src="../../static/img/logo.png" alt="logo" class="logo">    
+                </a>
+            </div>
+            <div class="name center"></div>
+            <div class="logout center">退出登录</div>
         </div>
-
         <div class="content">
             <div class="catogery" id="catog">
                 <ul>
-                    <li><a href="1">借阅中</a></li>
-                    <li><a href="2">还书中</a></li>
-                    <li><a href="3">已超期</a></li>
+                    <li id="borrow">借阅中</li>
+                    <li id="return">还书中</li>
+                    <li id="overdue">已超期</li>
                 </ul>
             </div>
-
-            <ul class="row">
-                <li class="col1" data-groups='["借阅中"]'>
-                    <div class="item">
-                        <div class="thumbail">
-                            <img class="bookface" src="/static/img/1.jpg" width="250">
-                            <div class="caption">
-                                <h4 class="bookname">of Mice And Men</h4>
-                                <table>
-                                    <tr>
-                                        <th class="borrowdate">借书日期:</th>
-                                        <th class="theborrowdate">2017.12.12</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="returndate">应还日期:</th>
-                                        <th class="thereturndate">2018.1.1</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="toEnd">剩余天数:</th>
-                                        <th class="thetoEnd">21天</th>
-                                    </tr>
-                                </table>
-                                <input type="button" id="s1" value="还书" onclick="changeValue1()">
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col">
+                    <img class="bookface" src="img/1.jpg">
+                    <div class="caption">
+                        <h4 class="bookname">of Mice And Men</h4>
+                        <table>
+                            <tr>
+                                <th class="borrowdate">借书日期:</th>
+                                <th class="theborrowdate">2017.12.12</th>
+                            </tr>
+                            <tr>
+                                <th class="returndate">应还日期:</th>
+                                <th class="thereturndate">2018.1.1</th>
+                            </tr>
+                            <tr>
+                                <th class="toEnd">剩余天数:</th>
+                                <th class="thetoEnd">21天</th>
+                            </tr>
+                        </table>
+                        <div class="input">还书</div>
                     </div>
-                </li>
+                </div>
+            </div>
+        </div>
+        <div class="sorter" id="sorter">
 
-                <li class="col2" data-groups='["还书中"]'>
-                    <div class="item">
-                        <div class="thumbail">
-                            <img class="bookface" src="static/img/1.jpg" width="250">
-                            <div class="caption">
-                                <h4 class="bookname">of Mice And Men</h4>
-                                <table>
-                                    <tr>
-                                        <th class="borrowdate">借书日期:</th>
-                                        <th class="theborrowdate">2017.12.12</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="returndate">应还日期:</th>
-                                        <th class="thereturndate">2018.1.1</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="toEnd">剩余天数:
-                                        </th>
-                                        <th class="thetoEnd">21天</th>
-                                    </tr>
-                                </table>
-                                <input type="button" id="s2" onclick="changeValue2()" value="还书">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col3" data-groups='["已超期"]'>
-                    <div class="item">
-                        <div class="thumbail">
-                            <img class="bookface" src="static/img/1.jpg" width="250">
-                            <div class="caption">
-                                <h4 class="bookname">of Mice And Men</h4>
-                                <table>
-                                    <tr>
-                                        <th class="borrowdate">借书日期:</th>
-                                        <th class="theborrowdate">2017.12.12</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="returndate">应还日期:</th>
-                                        <th class="thereturndate">2018.1.1</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="toEnd">剩余天数:
-                                        </th>
-                                        <th class="thetoEnd">21天</th>
-                                    </tr>
-                                </table>
-                                <input type="button" id="s3" onclick="changeValue3()" value="还书">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="row">
-                <li class="col4" data-groups='["借阅中"]'>
-                    <div class="item">
-                        <div class="thumbail">
-                            <img class="bookface" src="img/1.jpg" width="250">
-                            <div class="caption">
-                                <h4 class="bookname">of Mice And Men</h4>
-                                <table>
-                                    <tr>
-                                        <th class="borrowdate">借书日期:</th>
-                                        <th class="theborrowdate">2017.12.12</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="returndate">应还日期:</th>
-                                        <th class="thereturndate">2018.1.1</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="toEnd">剩余天数:
-                                        </th>
-                                        <th class="thetoEnd">21天</th>
-                                    </tr>
-                                </table>
-                                <input type="button" id="s4" onclick="changeValue4()" value="还书">>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col5" data-groups='["借阅中"]'>
-                    <div class="item  col-xs-4 col-lg-4">
-                        <div class="thumbail">
-                            <img class="bookface" src="static/img/1.jpg" width="250">
-                            <div class="caption">
-                                <h4 class="bookname">of Mice And Men</h4>
-                                <table>
-                                    <tr>
-                                        <th class="borrowdate">借书日期:</th>
-                                        <th class="theborrowdate">2017.12.12</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="returndate">应还日期:</th>
-                                        <th class="thereturndate">2018.1.1</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="toEnd">剩余天数:
-                                        </th>
-                                        <th class="thetoEnd">21天</th>
-                                    </tr>
-                                </table>
-                                <input type="button" id="s5" onclick="changeValue5()" value="还书">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <li class="col6" data-groups='["还书中"]'>
-                    <div class="item  col-xs-4 col-lg-4">
-                        <div class="thumbail">
-                            <img class="bookface" src="static/img/1.jpg" width="250">
-                            <div class="caption">
-                                <h4 class="bookname">of Mice And Men</h4>
-                                <table>
-                                    <tr>
-                                        <th class="borrowdate">借书日期:</th>
-                                        <th class="theborrowdate">2017.12.12</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="returndate">应还日期:</th>
-                                        <th class="thereturndate">2018.1.1</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="toEnd">剩余天数:
-                                        </th>
-                                        <th class="thetoEnd">21天</th>
-                                    </tr>
-                                </table>
-                                <input type="button" id="s6" onclick="changeValue6()" value="还书">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
         </div>
     </div>
 
@@ -193,5 +60,6 @@
 
 
 <script src="../../static/js/profile.js"></script>
+<script type="text/javascript" src = "../../static/js/common.js"></script>
 
 </html>

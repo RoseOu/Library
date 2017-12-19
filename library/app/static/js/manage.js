@@ -10,11 +10,12 @@ var side2 = document.getElementById("checkBook");
 var input = document.querySelectorAll(".input");
 var logout = document.getElementById("logout");
 var th = ['编号', '书名', '作者', '书的简介', '操作', '操作'];
-var th2 = ['借书人', '借书编号', '书名', '书的编号', '到期剩余天数', '还书'];
-var tt2 = ['username', 'borrow_id', 'name', 'book_id', 'days'];
+var th2 = ['借书人', '借书编号', '书名', '书的编号', '借阅总天数', '还书'];
+var tt2 = ['user_id', 'borrow_id', 'name', 'book_id', 'days'];
 var tt = ['book_id', 'name', 'author', 'book_introduction'];
 var modify = 0; //0代表加书，1代表修改书
 var now_id;
+var returnB = 0;//0代表还书，1代表管理书
 
 var deleteTable = function(tableNode) {
     if (tableNode.rows.length) {
@@ -158,7 +159,10 @@ var postBooks = function(data, url) {
 };
 
 var get = function(i) {
-    getBookList(i + 1, 5);
+    if(returnB)
+        getReturnBooks(i+1,5)
+    else
+        getBookList(i + 1, 5);
 };
 
 var removeRow = function(e, data, id, row) {
@@ -220,11 +224,13 @@ submit.addEventListener('click', function() {
 side1.addEventListener('click', function() {
     main1.style.display = "inline-block";
     main2.style.display = "none";
+    returnB = 0;
 })
 side2.addEventListener('click', function() {
     main1.style.display = "none";
     main2.style.display = "inline-block";
+    returnB = 1;
 })
 logout.addEventListener('click', function() {
-    window.location = "/management/login/"
+    window.location = "management/login/"
 })

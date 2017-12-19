@@ -8,8 +8,10 @@ var author_des = document.querySelector('.-author');
 var field = document.querySelector('.-field');
 var press = document.querySelector('.-publisher');
 var press_time = document.querySelector('.-publish-time');
-var book_id = window.location.pathname.split('/').pop()
-console.log(url)
+var bookList = window.location.pathname.split('/')
+var length = bookList.length
+var book_id = bookList[length-2];
+// console.log(url)
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -53,6 +55,6 @@ button.addEventListener('click', function() {
             alert("失败！")
         }
     }).then(value => {
-        console.log(value)
+        button.innerHTML = "已借阅"
     })
 })

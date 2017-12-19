@@ -1,13 +1,9 @@
 # coding: utf-8
 from . import main
-from flask import render_template
+from flask import request, render_template
 
 
 # test views
-@main.route('/test/')
-def test():
-    return "<h1>just tell you everything is ok!</h1>"
-
 @main.route('/')
 def index():
     return render_template("main/index.html")
@@ -20,6 +16,14 @@ def login():
 def profile(id):
     return render_template("main/profile.html")
 
-@main.route('/second/')
-def second():
+@main.route('/book/<int:id>/')
+def second(id):
     return render_template("main/second.html")
+
+@main.route('/search/',methods=["GET"])
+def search():
+    way = int(request.args.get("way"))
+    page = int(request.args.get("page"))
+    body = request.args.get("body")
+    num = int(request.args.get("num")) if request.args.get("page") else 10
+    return render_template("main/bookList.html")

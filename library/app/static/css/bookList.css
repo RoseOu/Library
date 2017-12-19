@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "HYQuanTangShiJ";
+    src: url('../font/HYQuanTangShiJ.ttf');
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 0;
+    font-family: 'HYQuanTangShiJ';
+    min-width: 950px;
+}
+
+.header {
+    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+    height: 80px;
+    line-height: 80px;
+    color: white;
+}
+
+.icon {
+    height: 50px;
+    width: 400px;
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+.logo {
+    height: 50px;
+    display: block;
+}
+
+.name {
+    margin-left: 45%;
+    font-size: 18px;
+}
+
+.logout {
+    margin-left: 5%;
+    font-size: 18px;
+}
+
+.center {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.newbook {
+    margin-top: 30px;
+    margin-left: 10%;
+    float: left;
+    height: 100px;
+    width: 100%;
+}
+
+.row {
+    margin: 20px auto;
+    width: 90%;
+    list-style-type: none;
+    height: 300px;
+}
+
+body,
+p,
+a,
+li {
+    font-size: 15px;
+}
+
+a {
+    color: #219e9a;
+}
+
+h3 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #313131;
+}
+
+p:not(.author) {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+p.author {
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    font-weight: 400;
+    color: rgba(49, 49, 49, 0.5);
+}
+
+#grid {
+    margin-bottom: 60px;
+}
+
+.book-item {
+    margin: 15px 0;
+    padding: 15px;
+    list-style-type: none;
+}
+
+.book-item .item-details {
+    padding-right: 30px;
+}
+
+.book-item h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button {
+    display: block;
+    width: 110px;
+    height: 40px;
+    padding: 0;
+    margin: 10px 20px 10px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #22c08a;
+    border: none;
+    transition: background-color .10s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button:hover {
+    background-color: #26d69a;
+}
+
+button:active {
+    background-color: #1eaa7a;
+}
+
+.col {
+    width: 28%;
+    margin: 2%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.img {
+    width: 90%;
+    display: block;
+}

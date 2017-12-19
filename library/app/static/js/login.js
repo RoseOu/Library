@@ -43,7 +43,7 @@ $("button").on("click", function() {
             }
         }).then(value => {
             setCookie("id", value.user_id)
-            console.log(value)
+            window.location = "/"
         })
     } else {
         fetch('http://120.24.4.254:5477/api/register/', {

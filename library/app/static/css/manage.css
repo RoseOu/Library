@@ -24,6 +24,8 @@ textarea {
     height: 80px;
     line-height: 80px;
     color: white;
+    position: fixed;
+    width: 100%;
 }
 
 .icon {
@@ -61,7 +63,10 @@ td {
 
 .side {
     background: #e4e8f1;
-    min-height: 89%;
+    /*min-height: 100%;*/
+    position: fixed;
+    top: 80px;
+    bottom: 0;
     width: 20%;
     font-size: 20px;
     color: #515151;
@@ -73,6 +78,8 @@ td {
     font-size: 20px;
     text-align: center;
     display: none;
+    margin-left: 20%;
+    padding-top: 80px;
 }
 
 .title {
@@ -177,6 +184,10 @@ td:hover {
 
 .page:hover {
     cursor: pointer;
+}
+
+td {
+    font-weight: bold;
 }
 
 td div {

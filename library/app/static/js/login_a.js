@@ -14,7 +14,7 @@ submit.addEventListener('click', function() {
         })
     }).then(res => {
         if (res.ok)
-            window.location = '/management/manage/'
+            window.location = 'management/manage/'
         else
             alert("管理员认证失败！");
     })

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>华中师范大学图书馆借阅管理系统</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../../static/css/index.css">
+</head>
+
+<body>
+    <div class="header centerBox">
+        <div class="icon center">
+            <a href="/">
+                <img src="../../static/img/logo.png" alt="logo" class="logo">    
+            </a>
+        </div>
+        <div class="name center">我的主页</div>
+        <div class="logout center">退出登录</div>
+    </div>
+
+    <div class="side center">
+    </div>
+    <div class="main1 center" id="main1">
+        <div class="search">
+            <input type="text" class="text gray" name="key" ID="key_S" />
+            <a href="javascript:void(0);" class="del-keywords"></a>
+            <span class="select">
+					<input type="hidden" name="stype" id="stype" value="0" />
+	            	<span id="lm">书名</span>
+            <span class="iicon"></span>
+            <div id="s_all" class="select_pop">
+                <a href="#"><span class="zz">作者</span></a>
+                <a href="#"><span class="mb">书名</span></a>
+            </div>
+            </span>
+            <input type="submit" class="sbtn" value="搜索" onclick="check()">
+        </div>
+
+        <div class="main2">
+            <div id="wrap">
+                <!-- 图片展示区 -->
+                <div id="inner" class="clear">
+                    <!-- 所有图片并排的块 -->
+                    <img src="http://img61.ddimg.cn/2017/12/15/2017121522011894951.jpg" alt="">
+                    <img src="http://img63.ddimg.cn/2017/12/18/201712181704183947.jpg" alt="">
+                    <img src="http://img60.ddimg.cn/2017/12/18/2017121817083669874.jpg" alt="">
+                    <img src="http://img60.ddimg.cn/2017/12/15/2017121522065174272.jpg" alt="">
+                    <img src="http://img63.ddimg.cn/2017/12/18/201712181704183947.jpg" alt="">
+                    <img src="http://img60.ddimg.cn/2017/12/15/2017121522065174272.jpg" alt="">
+                </div>
+                <div class="paganation" id="paganation">
+                    <!-- 页面按钮区域 -->
+                    <span class="selected" width="20">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                </div>
+                <div id="left" class="arrow">
+                    <</div>
+                        <!-- 向左切换按钮 -->
+                        <div id="right" class="arrow">></div>
+                        <!-- 向右切换按钮 -->
+                </div>
+            </div>
+
+            <div class="main3">
+                <div class="newbook">
+                    <button type="button">新进图书</button>
+                </div>
+                <div class="showall">
+                    <a href="#">
+                        <p></p>
+                    </a>
+                </div>
+
+
+                <div class="book-item">
+                    <center>
+                        <div class="book-item-image center">
+                            <img src="img/1.jpg" alt="" class = "image">
+                        </div>
+                        <div class="book-item-info center">
+                            <h3 class="book-item_title">Of Mice and Men</h3>
+                            <p class="author">by John Steinbeck &bull; 1937</p>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+                        </div>
+                    </center>
+                </div>
+                <div class="book-item">
+                    <center>
+                        <div class="book-item-image center">
+                            <img src="img/1.jpg" alt="" class = "image">
+                        </div>
+                        <div class="book-item-info center">
+                            <h3 class="book-item_title">Of Mice and Men</h3>
+                            <p class="author">by John Steinbeck &bull; 1937</p>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+                        </div>
+                    </center>
+                </div>
+                <div class="book-item">
+                    <center>
+                        <div class="book-item-image center">
+                            <img src="img/1.jpg" alt="" class = "image">
+                        </div>
+                        <div class="book-item-info center">
+                            <h3 class="book-item_title">Of Mice and Men</h3>
+                            <p class="author">by John Steinbeck &bull; 1937</p>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+                        </div>
+                    </center>
+                </div>
+
+                <div class="book-item">
+                    <center>
+                        <div class="book-item-image center">
+                            <img src="img/1.jpg" alt="" class = "image">
+                        </div>
+                        <div class="book-item-info center">
+                            <h3 class="book-item_title">Of Mice and Men</h3>
+                            <p class="author">by John Steinbeck &bull; 1937</p>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+                        </div>
+                    </center>
+                </div>
+
+                <div class="book-item">
+                    <center>
+                        <div class="book-item-image center">
+                            <img src="img/1.jpg" alt="" class = "image">
+                        </div>
+                        <div class="book-item-info center">
+                            <h3 class="book-item_title">Of Mice and Men</h3>
+                            <p class="author">by John Steinbeck &bull; 1937</p>
+                            <p class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus nisi, eget pulvinar in, molestie et arcu.</p>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="accordion_container">
+            <div>
+                <center>
+                    <p class="range">借书排行榜</p>
+                </center>
+            </div>
+            <div class="accordion">
+
+                <div class="first current">
+                    <div class="content">
+                        <img src="static/img/1.jpg" width="100" height="100" />
+                        <div class="word">
+                            <p>萨达的敬爱巨大的骄傲了农村开除你我的世界拉到啦</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea1.png" /></span>
+                        <p class="href"><a href="#" target="_blank">解忧杂货店</a></p>
+                    </div>
+                </div>
+
+                <div class="second">
+                    <div class="content second">
+                        <a href="#" target="_blank"><img src="static/img/2.jpg" width="100" height="100" /></a>
+                        <div class="word">
+                            <p>大卫杜夫不易了大坏蛋书记否供电公司个人赛对方单位的风俗</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea2.png" /></span>
+                        <p class="href"><a href="#" target="_blank">编译原理</a></p>
+                    </div>
+                </div>
+
+                <div class="third">
+                    <div class="content third">
+                        <a href="#" target="_blank"><img src="static/img/3.jpg" width="100" height="100" /></a>
+                        <div class="word">
+                            <p>大喊大叫大家大黄蜂贷款低速的函数电话是多少</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea3.png" /></span>
+                        <p class="href"><a href="#" target="_blank">计算机图形学</a></p>
+                    </div>
+                </div>
+
+                <div class="four">
+                    <div class="content four">
+                        <a href="#" target="_blank"><img src="static/img/4.jpg" width="100" height="100" /></a>
+                        <div class="word">
+
+                            <p>八一数码手机专营是身份身份萨芬是大萨达</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea4.png"  /></span>
+                        <p class="href"><a href="#" target="_blank">组成原理</a></p>
+                    </div>
+                </div>
+
+                <div class="five">
+                    <div class="content file">
+                        <a href="#" target="_blank"><img src="static/img/5.jpg" width="100" height="100" /></a>
+                        <div class="word">
+                            <p>工时费反射反射方法是否素数反射反射</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea5.png"/></span>
+                        <p class="href"><a href="#" target="_blank">信息技术</a></p>
+                    </div>
+                </div>
+
+                <div class="six">
+                    <div class="content file">
+                        <a href="#" target="_blank"><img src="static/img/5.jpg" width="100" height="100" /></a>
+                        <div class="word">
+                            <p>喂喂喂翁翁翁翁翁翁翁</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea6.png"/></span>
+                        <p class="href"><a href="#" target="_blank">孤单是最好的礼物</a></p>
+                    </div>
+                </div>
+
+                <div class="seven">
+                    <div class="content file">
+                        <a href="#" target="_blank"><img src="static/img/5.jpg" width="100" height="100" /></a>
+                        <div class="word">
+                            <p>覆盖覆盖覆盖覆盖覆盖覆盖发广告</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea7.png"/></span>
+                        <p class="href"><a href="#" target="_blank">林清玄散文集</a></p>
+                    </div>
+                </div>
+
+                <div class="eight">
+                    <div class="content">
+                        <img src="static/img/1.jpg" width="100" height="100" />
+                        <div class="word">
+                            <p>的奋斗奋斗奋斗奋斗奋斗辅导费</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea8.png" /></span>
+                        <p class="href"><a href="#" target="_blank">追光者</a></p>
+                    </div>
+                </div>
+
+                <div class="nine">
+                    <div class="content">
+                        <img src="static/img/1.jpg" width="100" height="100" />
+                        <div class="word">
+                            <p>有一套一套一套一套一套一套</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea9.png" /></span>
+                        <p class="href"><a href="#" target="_blank">专业英语</a></p>
+                    </div>
+                </div>
+
+                <div class="ten">
+                    <div class="content">
+                        <img src="static/img/1.jpg" width="100" height="100" />
+                        <div class="word">
+                            <p>选择性中选择小猪小组</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <span><img src="../../static/img/tea10.png" /></span>
+                        <p class="href"><a href="#" target="_blank">站在你背后</a></p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+</body>
+
+<script type="text/javascript" src='../../static/js/jquery-1.8.0.min.js'></script>
+<script type="text/javascript" src='../../static/js/index.js'></script>
+<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/js/j-accordin.min.js"></script>
+<script type="text/javascript" src = "../../static/js/common.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.accordion').jaccordion();
+    });
+</script>
+
+</html>
