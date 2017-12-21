@@ -17,8 +17,11 @@ submit.addEventListener('click', function() {
         })
     }).then(res => {
         if (res.ok)
+            return res.json()
+    }).then(value => {
+        if (value.user_id) {
             window.location = '/management/manage/'
-        else {
+        } else {
             mask.style.display = "block"
             setTimeout(function() {
                 mask.style.display = "none";

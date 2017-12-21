@@ -34,6 +34,11 @@ var createSorter = function(sorter, count) {
     while (sorter.hasChildNodes()) {
         sorter.removeChild(sorter.firstChild)
     }
+    if (count == 0) {
+        // console.log("count = ", count)
+        sorter.innerHTML = "没有相关书籍哦~"
+        return
+    }
     var page = Math.ceil(count / 9);
     var p = document.createElement("span");
     p.innerHTML = "共" + count + "条";
@@ -113,7 +118,6 @@ var createTable = function(node, data) {
     }
 }
 var getList = function(page, status) {
-    console.log("hshsh")
     fetch('http://120.24.4.254:5477/api/profile/' + user_id + '/?page=' + page + '&num=9&status=' + status).then(res => {
         return res.json()
     }).then(value => {
@@ -127,15 +131,25 @@ var getList = function(page, status) {
     })
 }
 getList(1, 1);
+borrow.style.background = "#53e3a6";
 borrow.addEventListener('click', function() {
     li = 1;
     getList(1, li);
+    borrow.style.background = "#53e3a6";
+    re.style.background = "#CCC";
+    overdue.style.background = "#CCC";
 })
 re.addEventListener('click', function() {
     li = 2;
     getList(1, li);
+    borrow.style.background = "#ccc";
+    re.style.background = "#53e3a6";
+    overdue.style.background = "#CCC";
 })
 overdue.addEventListener('click', function() {
     li = 3;
     getList(1, li);
+    borrow.style.background = "#ccc";
+    re.style.background = "#CCC";
+    overdue.style.background = "#53e3a6";
 })

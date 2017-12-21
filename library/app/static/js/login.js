@@ -42,15 +42,17 @@ $("button").on("click", function() {
         }).then(res => {
             if (res.ok)
                 return res.json()
-            else {
+
+        }).then(value => {
+            if (value.user_id) {
+                setCookie("id", value.user_id)
+                window.location = "/"
+            } else {
                 mask.style.display = "block"
                 setTimeout(function() {
                     mask.style.display = "none";
                 }, 2000)
             }
-        }).then(value => {
-            setCookie("id", value.user_id)
-            window.location = "/"
         })
     } else {
         fetch('http://120.24.4.254:5477/api/register/', {
@@ -67,16 +69,18 @@ $("button").on("click", function() {
         }).then(res => {
             if (res.ok) {
                 return res.json()
-            } else {
+            }
+        }).then(value => {
+            // console.log(value)
+            if (value.status == "User exists.") {
                 modal.innerHTML = "该邮箱或用户名已被注册"
                 mask.style.display = "block"
                 setTimeout(function() {
                     mask.style.display = "none";
                 }, 2000)
-            }
-        }).then(value => {
-            if (value)
+            } else {
                 window.location = "/login/"
+            }
         })
     }
 
