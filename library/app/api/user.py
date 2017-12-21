@@ -18,6 +18,10 @@ def register():
         return jsonify({
             "user_id":user_id
             })
+    else:
+        return jsonify({
+            "status":"User exists."
+            })
 
 @api.route('/login/', methods=['POST'])
 def login():
@@ -35,6 +39,10 @@ def login():
             "user_id":user.id,
             "token":token,
             })
+    else:
+        return jsonify({
+            "status":"No such user."
+            })
 
 @api.route('/admin/login/', methods=['POST'])
 def admin_login():
@@ -51,5 +59,9 @@ def admin_login():
         return jsonify({
             "user_id":user.id,
             "token":token,
+            })
+    else:
+        return jsonify({
+            "status":"No such user."
             })
 
