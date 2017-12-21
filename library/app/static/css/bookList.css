@@ -13,6 +13,10 @@ html {
     min-width: 950px;
 }
 
+button {
+    outline: none;
+}
+
 .header {
     background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
     height: 80px;
@@ -152,4 +156,29 @@ button:active {
 .img {
     width: 90%;
     display: block;
+}
+
+.mask {
+    display: none;
+    position: absolute;
+    background: rgba(10, 10, 10, .68);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal {
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    background-color: #1eaa7a;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    padding: 3% 1%;
+    color: white;
+    border-radius: 5%;
+    text-align: center;
 }

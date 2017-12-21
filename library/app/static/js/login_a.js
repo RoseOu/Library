@@ -1,6 +1,9 @@
 var email = document.getElementById('email');
 var password = document.getElementById('password');
 var submit = document.getElementById('login-button');
+var mask = document.querySelector('.mas');
+var modal = mask.querySelector('.modal');
+
 submit.addEventListener('click', function() {
     fetch('http://120.24.4.254:5477/api/admin/login/', {
         method: 'POST',
@@ -15,8 +18,12 @@ submit.addEventListener('click', function() {
     }).then(res => {
         if (res.ok)
             window.location = '/management/manage/'
-        else
-            alert("管理员认证失败！");
+        else {
+            mask.style.display = "block"
+            setTimeout(function() {
+                mask.style.display = "none";
+            }, 2000)
+        }
     })
     console.log("email = ", email.value, "password = ", password.value);
 })

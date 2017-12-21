@@ -1,5 +1,9 @@
 // jQuery & Velocity.js
 var log = false
+var mask = document.querySelector('.mask');
+var modal = mask.querySelector('.modal');
+
+setCookie("id", "", -1)
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -39,7 +43,10 @@ $("button").on("click", function() {
             if (res.ok)
                 return res.json()
             else {
-                shake()
+                mask.style.display = "block"
+                setTimeout(function() {
+                    mask.style.display = "none";
+                }, 2000)
             }
         }).then(value => {
             setCookie("id", value.user_id)
@@ -58,13 +65,18 @@ $("button").on("click", function() {
                 password: $("#password_input")[0].value
             })
         }).then(res => {
-            if (res.ok)
+            if (res.ok) {
                 return res.json()
-            else {
-                shake()
+            } else {
+                modal.innerHTML = "该邮箱或用户名已被注册"
+                mask.style.display = "block"
+                setTimeout(function() {
+                    mask.style.display = "none";
+                }, 2000)
             }
         }).then(value => {
-            location.reload();
+            if (value)
+                window.location = "/login/"
         })
     }
 

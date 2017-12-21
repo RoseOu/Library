@@ -9,13 +9,15 @@ var side1 = document.getElementById("manageBook");
 var side2 = document.getElementById("checkBook");
 var input = document.querySelectorAll(".input");
 var logout = document.getElementById("logout");
+var mask = document.querySelector('.mask');
+var modal = mask.querySelector('.modal');
 var th = ['编号', '书名', '作者', '书的简介', '操作', '操作'];
 var th2 = ['借书人', '借书编号', '书名', '书的编号', '借阅总天数', '还书'];
 var tt2 = ['username', 'borrow_id', 'name', 'book_id', 'days'];
 var tt = ['book_id', 'name', 'author', 'book_introduction'];
 var modify = 0; //0代表加书，1代表修改书
 var now_id;
-var returnB = 0;//0代表还书，1代表管理书
+var returnB = 0; //0代表还书，1代表管理书
 
 var deleteTable = function(tableNode) {
     if (tableNode.rows.length) {
@@ -133,6 +135,17 @@ var getReturnBooks = function(page, num) {
 };
 
 var postBooks = function(data, url) {
+    for (var i = 0; i < 9; i++) {
+        if (data[i].value == "") {
+            modal.innerHTML = "请完善信息"
+            mask.style.display = "block"
+            setTimeout(function() {
+                mask.style.display = "none";
+            }, 2000)
+            return;
+
+        }
+    }
     fetch(url, {
         method: 'POST',
         headers: {
@@ -154,13 +167,17 @@ var postBooks = function(data, url) {
     }).then(res => {
         return res.json()
     }).then(value => {
-        location.reload();
+        mask.style.display = "block"
+        setTimeout(function() {
+            mask.style.display = "none";
+        }, 2000)
+        getBookList(1, 5);
     })
 };
 
 var get = function(i) {
-    if(returnB)
-        getReturnBooks(i+1,5)
+    if (returnB)
+        getReturnBooks(i + 1, 5)
     else
         getBookList(i + 1, 5);
 };
@@ -176,7 +193,7 @@ var removeRow = function(e, data, id, row) {
     }).then(res => {
         return res.json()
     }).then(value => {
-        location.reload();
+        getBookList(1, 5);
     })
 };
 
@@ -207,11 +224,24 @@ var returnRow = function(id) {
     }).then(res => {
         return res.json()
     }).then(value => {
-        location.reload();
+        getReturnBooks(1, 5);
     })
 };
+
+var showTable1 = function() {
+    main1.style.display = "inline-block";
+    main2.style.display = "none";
+    returnB = 0;
+}
+var showTable2 = function() {
+    main1.style.display = "none";
+    main2.style.display = "inline-block";
+    returnB = 1;
+}
+
 getBookList(1, 5);
 getReturnBooks(1, 5);
+showTable1();
 
 submit.addEventListener('click', function() {
     if (modify) {
@@ -222,14 +252,10 @@ submit.addEventListener('click', function() {
     }
 })
 side1.addEventListener('click', function() {
-    main1.style.display = "inline-block";
-    main2.style.display = "none";
-    returnB = 0;
+    showTable1()
 })
 side2.addEventListener('click', function() {
-    main1.style.display = "none";
-    main2.style.display = "inline-block";
-    returnB = 1;
+    showTable2()
 })
 logout.addEventListener('click', function() {
     window.location = "/management/login/"

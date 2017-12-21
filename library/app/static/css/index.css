@@ -12,10 +12,14 @@ html {
     font-family: 'HYQuanTangShiJ';
     min-width: 950px;
 }
-.image{
+
+.image {
     display: block;
     width: 90%;
-    /*height: 300px;*/
+}
+
+button {
+    outline: none;
 }
 
 .header {
@@ -26,7 +30,7 @@ html {
     color: white;
 }
 
-.book-item_title{
+.book-item_title {
     cursor: pointer;
 }
 
@@ -285,7 +289,6 @@ html {
     line-height: 300px;
     width: 30%;
     height: 300px;
-
 }
 
 .book-item-info {
@@ -494,6 +497,6 @@ a {
     overflow: hidden;
 }
 
-.book-item{
+.book-item {
     min-height: 300px;
 }

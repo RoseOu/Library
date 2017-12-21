@@ -1,7 +1,7 @@
 var content = document.querySelectorAll('.content');
 var tab = document.querySelectorAll('.tab');
 var book_item = document.querySelectorAll('.book-item');
-
+var way = 1;
 $(function() {
     $('.select').click(function() {
         $('.select_pop').stop().toggle();
@@ -22,10 +22,11 @@ $(function() {
 
 function check() {
     if ($("#stype").val() == "zz") {
-        window.location = "/search/?body=" + $(".text")[0].value + "&page=1&num=20&way=2";
+        way = 2;
     } else if ($("#stype").val() == "mb") {
-        window.location = "/search/?body=" + $(".text")[0].value + "&page=1&num=20&way=1";
+        way = 1;
     }
+    window.location = "/search/?body=" + $(".text")[0].value + "&page=1&num=20&way=" + way;
 }
 
 
@@ -161,12 +162,12 @@ var getNewbook = function() {
             title.innerHTML = value.book[i].name;
             author.innerHTML = value.book[i].author;
             intro.innerHTML = value.book[i].book_introduction;
-            title.addEventListener('click',toSecond.bind(this,value.book[i].book_id))
+            title.addEventListener('click', toSecond.bind(this, value.book[i].book_id))
         }
     })
 }
 
-var toSecond = function(id){
+var toSecond = function(id) {
     window.location = '/book/' + id + '/'
 }
 
