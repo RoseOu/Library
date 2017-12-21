@@ -85,6 +85,10 @@ var createSorter = function(sorter, count) {
     while (sorter.hasChildNodes()) {
         sorter.removeChild(sorter.firstChild)
     }
+    if (count == 0) {
+        sorter.innerHTML = "没有相关内容哦~"
+        return
+    }
     var page = Math.ceil(count / 5);
     var p = document.createElement("span");
     p.innerHTML = "共" + count + "条";
@@ -167,11 +171,12 @@ var postBooks = function(data, url) {
     }).then(res => {
         return res.json()
     }).then(value => {
+        modal.innerHTML = "提交成功"
         mask.style.display = "block"
         setTimeout(function() {
             mask.style.display = "none";
+            location.reload()
         }, 2000)
-        getBookList(1, 5);
     })
 };
 
