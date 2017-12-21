@@ -2,23 +2,23 @@ var profileButton = document.querySelector('.name');
 var logout = document.querySelector('.logout');
 var user_id;
 
-console.log(getCookie("id"))
+console.log("common", getCookie("id"))
 
-if(getCookie("id") == ""){
+if (getCookie("id") == "") {
     profileButton.style.display = "none";
     logout.innerHTML = "登录/注册"
     logout.className = "name center"
-}else{
+} else {
     user_id = getCookie('id')
-    profileButton.addEventListener('click',function(){
+    profileButton.addEventListener('click', function() {
         window.location = '/profile/' + user_id + '/'
     })
 }
 
-logout.addEventListener('click',function(){
-        window.location = '/login/';
-        setCookie("id","",-1);
-    })
+logout.addEventListener('click', function() {
+    window.location = '/login/';
+    setCookie("id", "", -1);
+})
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -37,5 +37,3 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires=" + d.toUTCString() + ";path = /";
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
-
-

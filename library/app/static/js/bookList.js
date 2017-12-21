@@ -1,4 +1,6 @@
 var grid = document.getElementById('grid');
+var mask = document.querySelector('.mask');
+var modal = mask.querySelector('.modal');
 var url = window.location.pathname + window.location.search
 console.log(url)
 var createBookList = function(data, num) {
@@ -32,11 +34,23 @@ var toSecond = function(id) {
 }
 var searchBook = function(url) {
     fetch('http://120.24.4.254:5477/api' + url).then(res => {
-        return res.json()
+        if (res.ok) {
+            return res.json()
+        } else {
+
+        }
     }).then(value => {
         console.log(value)
-        createBookList(value.book, value.count)
+        if (value.count == 0) {
+            modal.innerHTML = "没有您想要的结果哦~试试别的书吧~"
+            mask.style.display = "block"
+            setTimeout(function() {
+                mask.style.display = "none";
+                window.location = "/"
+            }, 4000)
+        } else {
+            createBookList(value.book, value.count)
+        }
     })
 }
-// createBookList(data, 4)
 searchBook(url);

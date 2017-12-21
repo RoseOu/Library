@@ -177,3 +177,27 @@ p a:hover {
         stroke-dashoffset: 0;
     }
 }
+
+.mask {
+    display: none;
+    position: absolute;
+    background: rgba(10, 10, 10, .68);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #1eaa7a;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    color: white;
+    border-radius: 5%;
+    text-align: center;
+}

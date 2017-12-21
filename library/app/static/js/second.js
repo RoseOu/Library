@@ -10,8 +10,12 @@ var press = document.querySelector('.-publisher');
 var press_time = document.querySelector('.-publish-time');
 var bookList = window.location.pathname.split('/')
 var length = bookList.length
-var book_id = bookList[length-2];
+var book_id = bookList[length - 2];
+var mask = document.querySelector('.mask');
+var modal = mask.querySelector('.modal');
 // console.log(url)
+
+console.log("second", "'" + getCookie("id") + "'")
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -38,6 +42,13 @@ fetch('http://120.24.4.254:5477/api/book/' + book_id + '/').then(res => {
     press_time.innerHTML = value.publication_time
 })
 button.addEventListener('click', function() {
+    if (getCookie("id") == "") {
+        mask.style.display = "block"
+        setTimeout(function() {
+            mask.style.display = "none";
+        }, 1000)
+        return
+    }
     fetch('http://120.24.4.254:5477/api/borrow/', {
         method: 'POST',
         headers: {
@@ -51,9 +62,6 @@ button.addEventListener('click', function() {
     }).then(res => {
         if (res.ok)
             return res.json()
-        else {
-            alert("失败！")
-        }
     }).then(value => {
         button.innerHTML = "已借阅"
     })
