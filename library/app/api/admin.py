@@ -54,6 +54,8 @@ def edit_book(id):
 def delete_book(id):
     book = Book.query.get_or_404(id)
     if request.method == "DELETE":
+        for borrow in Borrow.query.filter_by(book_id=id).all():
+            db.session.delete(borrow)
         db.session.delete(book)
         db.session.commit()
         return jsonify({

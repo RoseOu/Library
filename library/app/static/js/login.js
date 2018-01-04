@@ -55,7 +55,6 @@ $("button").on("click", function() {
         }).then(res => {
             if (res.ok)
                 return res.json()
-
         }).then(value => {
             if (value.user_id) {
                 setCookie("id", value.user_id)

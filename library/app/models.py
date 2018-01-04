@@ -72,7 +72,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(164), info={'validator' : Email()},unique=True)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'), default=2)
     password_hash = db.Column(db.String(164))
-    borrow = db.relationship('Borrow', backref='user', lazy='dynamic')
+    borrow = db.relationship('Borrow', backref='user', lazy='dynamic', cascade='all')
 
     @property
     def password(self):
@@ -126,7 +126,7 @@ login_manager.anonymous_user = AnonymousUser
 class Book(db.Model):
     __tablename__ = 'books'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), default="")
+    name = db.Column(db.String(64), default="", index=True)
     author = db.Column(db.String(64), default="")
     isbn = db.Column(db.String(128), default="")
     press = db.Column(db.String(128), default="")
@@ -137,7 +137,7 @@ class Book(db.Model):
     image = db.Column(db.String(192), default="")
     purchase_date = db.Column(db.DateTime, default=datetime.utcnow)
     borrowtime = db.Column(db.Integer,default=0)
-    borrow = db.relationship('Borrow', backref='book', lazy='dynamic')
+    borrow = db.relationship('Borrow', backref='book', lazy='dynamic', cascade='all')
 
     def __repr__(self):
         return "<Book %r>" % self.name
@@ -149,8 +149,8 @@ class Borrow(db.Model):
     return_date = db.Column(db.DateTime, default=datetime.utcnow)
     days = db.Column(db.Integer,default=90)
     status = db.Column(db.Integer,default=1)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
-    book_id = db.Column(db.Integer,db.ForeignKey('books.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id', ondelete="CASCADE"))
+    book_id = db.Column(db.Integer,db.ForeignKey('books.id', ondelete="CASCADE"))
 
     def __repr__(self):
         return "<Borrow %r>" % self.id
