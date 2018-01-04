@@ -1,7 +1,9 @@
 var content = document.querySelectorAll('.content');
 var tab = document.querySelectorAll('.tab');
 var book_item = document.querySelectorAll('.book-item');
+var choice = document.querySelectorAll('.choice');
 var way = 1;
+var filed = "文学"
 $(function() {
     $('.select').click(function() {
         $('.select_pop').stop().toggle();
@@ -28,8 +30,20 @@ function check() {
     }
     window.location = "/search/?body=" + $(".text")[0].value + "&page=1&num=20&way=" + way;
 }
-
-
+var changeTabStyle = function() {
+    for (var i = 0; i < choice.length; i++) {
+        choice[i].addEventListener('click', function() {
+            console.log("hahah")
+            for (var j = 0; j < choice.length; j++) {
+                choice[j].className = "choice";
+            }
+            this.className += " nowChoice"
+            filed = this.innerHTML;
+            console.log(filed)
+            getBorrowbook()
+        })
+    }
+}
 
 var wrap = document.getElementById("wrap");
 var inner = document.getElementById("inner");
@@ -134,10 +148,10 @@ function clear() {
     }
 }
 var getBorrowbook = function() {
-    fetch('http://120.24.4.254:5477/api/rank/').then(res => {
+    fetch('http://120.24.4.254:5477/api/rank/?filed=' + filed).then(res => {
         return res.json()
     }).then(value => {
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < value.count; i++) {
             var img = content[i].getElementsByTagName('img')[0];
             var p = content[i].getElementsByTagName('p')[0];
             var title = tab[i].getElementsByTagName('a')[0];
@@ -173,3 +187,4 @@ var toSecond = function(id) {
 
 getBorrowbook()
 getNewbook()
+changeTabStyle()

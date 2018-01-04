@@ -12,6 +12,11 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
 
+function isdate(str) {
+    var pattern = /\d{4}(\-|\/|.)\d{1,2}\1\d{1,2}/;
+    return pattern.test(str);
+}
+
 function slideUpIn() {
     $("#login").velocity("transition.slideUpIn", 1250)
 };
@@ -28,6 +33,14 @@ slideUpIn();
 slideLeftIn();
 $("button").on("click", function() {
     console.log(log)
+    if (!checkEmail($("#email_input")[0].value)) {
+        modal.innerHTML = "您的邮箱格式不正确"
+        mask.style.display = "block"
+        setTimeout(function() {
+            mask.style.display = "none";
+        }, 2000)
+        return
+    }
     if (!log) {
         fetch('http://120.24.4.254:5477/api/login/', {
             method: 'POST',
