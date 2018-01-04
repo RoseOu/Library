@@ -63,7 +63,9 @@ def get_new():
 
 @api.route('/rank/', methods=["GET"])
 def get_rank():
-    book = Book.query.order_by(Book.borrowtime.desc()).limit(10)
+    filed = str(request.args.get('filed'))
+    book = Book.query.filter_by(filed=filed).order_by(Book.borrowtime.desc()).limit(10)
+    count = book.count()
     book_list = [{
         "book_id":b.id,
         "name":b.name,
@@ -73,7 +75,8 @@ def get_rank():
         "borrowtime":b.borrowtime
        } for b in book]
     return jsonify({
-        "book":book_list
+        "book":book_list,
+        "count":count
         })
 
 @api.route('/changedays/', methods=["GET"])

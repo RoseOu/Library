@@ -1,6 +1,6 @@
 #coding:utf-8
 
-from flask import request,jsonify
+from flask import request,jsonify,session
 from . import api
 from app import db
 from app.models import User
@@ -35,6 +35,7 @@ def login():
     if user is not None and user.verify_password(password):
         uid = user.id
         token = user.generate_auth_token()
+        session['logged_in'] = True
         return jsonify({
             "user_id":user.id,
             "token":token,
@@ -43,6 +44,13 @@ def login():
         return jsonify({
             "status":"No such user."
             })
+
+@api.route('/logout/', methods=['POST'])
+def logout():
+    session['logged_in'] = False
+    return jsonify({
+        'status':'logout'
+        })
 
 @api.route('/admin/login/', methods=['POST'])
 def admin_login():

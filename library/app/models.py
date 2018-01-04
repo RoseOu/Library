@@ -137,6 +137,7 @@ class Book(db.Model):
     image = db.Column(db.String(192), default="")
     purchase_date = db.Column(db.DateTime, default=datetime.utcnow)
     borrowtime = db.Column(db.Integer,default=0)
+    sort = db.Column(db.Integer,default=1)
     borrow = db.relationship('Borrow', backref='book', lazy='dynamic', cascade='all')
 
     def __repr__(self):
