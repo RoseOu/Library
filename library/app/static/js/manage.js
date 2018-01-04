@@ -8,7 +8,8 @@ var main2 = document.getElementById("main2");
 var side1 = document.getElementById("manageBook");
 var side2 = document.getElementById("checkBook");
 var input = document.querySelectorAll(".input");
-var logout = document.getElementById("logout");
+var logouta = document.getElementById("logout");
+var token = getCookie("token")
 var mask = document.querySelector('.mask');
 var modal = mask.querySelector('.modal');
 var th = ['编号', '书名', '作者', '书的简介', '操作', '操作'];
@@ -18,6 +19,33 @@ var tt = ['book_id', 'name', 'author', 'book_introduction'];
 var modify = 0; //0代表加书，1代表修改书
 var now_id;
 var returnB = 0; //0代表还书，1代表管理书
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString() + ";path = /";
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function isdate(str) {
+    var pattern = /\d{4}(\-|\/|.)\d{1,2}\1\d{1,2}/;
+    return pattern.test(str);
+}
+
+if (!token) {
+    window.location = "/management/login/"
+}
 
 var deleteTable = function(tableNode) {
     if (tableNode.rows.length) {
@@ -104,7 +132,7 @@ var getBookList = function(page, num) {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.astWYN5RPh0SMfonvMrCwmuPEPgCx8iCq0IGpFj_Qpo'
+            'Authorization': token
         },
     }).then(res => {
         return res.json()
@@ -124,7 +152,7 @@ var getReturnBooks = function(page, num) {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.astWYN5RPh0SMfonvMrCwmuPEPgCx8iCq0IGpFj_Qpo'
+            'Authorization': token
         },
     }).then(res => {
         return res.json()
@@ -139,6 +167,14 @@ var getReturnBooks = function(page, num) {
 };
 
 var postBooks = function(data, url) {
+    if (!isdate(data[1].value)) {
+        modal.innerHTML = "请输入正确的日期格式"
+        mask.style.display = "block"
+        setTimeout(function() {
+            mask.style.display = "none";
+        }, 2000)
+        return
+    }
     for (var i = 0; i < 9; i++) {
         if (data[i].value == "") {
             modal.innerHTML = "请完善信息"
@@ -155,7 +191,7 @@ var postBooks = function(data, url) {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.astWYN5RPh0SMfonvMrCwmuPEPgCx8iCq0IGpFj_Qpo'
+            'Authorization': token
         },
         body: JSON.stringify({
             name: data[0].value,
@@ -193,7 +229,7 @@ var removeRow = function(e, data, id, row) {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.astWYN5RPh0SMfonvMrCwmuPEPgCx8iCq0IGpFj_Qpo'
+            'Authorization': token
         },
     }).then(res => {
         return res.json()
@@ -221,7 +257,7 @@ var returnRow = function(id) {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.astWYN5RPh0SMfonvMrCwmuPEPgCx8iCq0IGpFj_Qpo'
+            'Authorization': token
         },
         body: JSON.stringify({
             borrow_id: id
@@ -262,6 +298,9 @@ side1.addEventListener('click', function() {
 side2.addEventListener('click', function() {
     showTable2()
 })
-logout.addEventListener('click', function() {
+logouta.addEventListener('click', function() {
+    setCookie("id", "", -1);
+    setCookie("token", "", -1);
     window.location = "/management/login/"
+
 })
