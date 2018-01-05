@@ -16,6 +16,11 @@ if (getCookie("id") == "") {
 logout.addEventListener('click', function() {
     window.location = '/login/';
     setCookie("id", "", -1);
+    fetch('http://120.24.4.254:5477/api/logout/').then(res => {
+        return res.json()
+    }).then(value => {
+        console.log("logout")
+    })
 })
 
 function getCookie(cname) {
