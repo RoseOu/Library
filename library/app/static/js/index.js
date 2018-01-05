@@ -167,7 +167,7 @@ var getNewbook = function() {
     fetch('http://120.24.4.254:5477/api/new/').then(res => {
         return res.json()
     }).then(value => {
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 1; i++) {
             var img = book_item[i].getElementsByTagName('img')[0];
             var title = book_item[i].getElementsByTagName('h3')[0];
             var author = book_item[i].querySelector('.author');

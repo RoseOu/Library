@@ -2,8 +2,6 @@ var profileButton = document.querySelector('.name');
 var logout = document.querySelector('.logout');
 var user_id;
 
-console.log("common", getCookie("id"))
-
 if (getCookie("id") == "") {
     profileButton.style.display = "none";
     logout.innerHTML = "登录/注册"

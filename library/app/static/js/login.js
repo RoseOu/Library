@@ -29,6 +29,11 @@ function shake() {
     $(".password-row").velocity("callout.shake");
 }
 
+function checkEmail(str) {
+    var pattern = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/;
+    return pattern.test(str);
+}
+
 slideUpIn();
 slideLeftIn();
 $("button").on("click", function() {
