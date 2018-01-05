@@ -302,5 +302,9 @@ logouta.addEventListener('click', function() {
     setCookie("id", "", -1);
     setCookie("token", "", -1);
     window.location = "/management/login/"
-
+    fetch('http://120.24.4.254:5477/api/logout/').then(res => {
+        return res.json()
+    }).then(value => {
+        console.log("logout")
+    })
 })
